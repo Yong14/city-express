@@ -1,0 +1,19 @@
+@import "../../css/icon.wxss";
+/* component/btn/btn.wxss */
+
+.btn{
+    display: flex;
+    align-items: center;
+}
+.btn text {
+    margin: 0 10px;
+}
+.btn view {
+    width           : 40rpx;
+    height          : 40rpx;
+    line-height     : 36rpx;
+    border-radius   : 50%;
+    background-color: #4993F7;
+    text-align      : center;
+    color           : #fff;
+}

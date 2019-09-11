@@ -1,0 +1,5 @@
+<view class="btn">
+    <view catchtap="reduse" hidden="{{count==0}}">-</view>
+    <text hidden="{{count==0}}">{{count}}</text>
+    <view catchtap="add">+</view>
+</view>

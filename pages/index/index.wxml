@@ -1,0 +1,126 @@
+<view class="body">
+    <popWindow bind:closePop="closePop" seller="{{seller}}" class="popWindow" wx:if="{{showStore}}"></popWindow>
+    <goodDetail GoodDetail="{{GoodDetail}}" bind:close="hideGoodDetail" wx:if="{{sohwGoodDetail}}" class="popWindow">
+    </goodDetail>
+    <view class="header">
+        <view class="headImg">
+            <image src="{{seller.title}}">
+            </image>
+        </view>
+
+        <view bindtap="headText" class="headText">
+            {{seller.name}}>
+        </view>
+
+        <view class="particular">
+            <text>评价{{seller.score}}</text>
+            <text>月售{{seller.sellCount}}</text>
+            <text>{{seller.description}}约{{seller.deliveryTime}}分钟</text>
+        </view>
+        <view bindtap="discounts" class="discounts">
+            <swiper vertical autoplay circular interval="2000">
+                <swiper-item wx:for="{{seller.supports}}" wx:key="indexs">
+                    <view>
+                        <image src="{{item.src}}"></image>
+                        <text>{{item.description}}</text>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <!-- 导航 -->
+    <view class="nav">
+        <view class="nav-item">
+            <view bindtap="nav" data-index="{{1}}" class="{{currentIndex==1?'active':''}}">点餐</view>
+        </view>
+        <view class="nav-item">
+            <view bindtap="nav" data-index="{{2}}" class="{{currentIndex==2?'active':''}}">评价</view>
+        </view>
+        <view class="nav-item">
+            <view bindtap="nav" data-index="{{3}}" class="{{currentIndex==3?'active':''}}">商家</view>
+        </view>
+    </view>
+    <!-- 点餐 -->
+    <view class="order" hidden="{{currentIndex!=1}}">
+        <!-- 分类 -->
+        <scroll-view scroll-y class="type">
+            <view data-id="b{{index}}" bindtap="chooseType" data-i="{{index}}"
+                class="{{goodsIndex==index?'type-item active':'type-item'}}" wx:for="{{goods}}" wx:key="index">
+                <view>{{item.name}}</view>
+            </view>
+        </scroll-view>
+        <!-- 商品 -->
+        <scroll-view bindscroll="scroll" scroll-y class="commodity" scroll-into-view="{{toView}}" scroll-with-animation>
+            <view id="b{{index}}" class="commodity-box" wx:for="{{goods}}" wx:key="index">
+                <view class="commodity-title">{{item.name}}</view>
+                <view class="commodity-content">
+                    <view data-i="{{index}}" data-j="{{i}}" bindtap="goodDetail" class="content-item"
+                        wx:for="{{item.foods}}" wx:for-item="j" wx:for-index="i" wx:key="i">
+                        <image class="commodity-img" src="{{j.image}}"></image>
+                        <view class="commodity-item">
+                            <view class="item-name">{{j.name}}</view>
+                            <view class="item-rating">
+                                <text>月售{{j.sellCount}}</text>
+                                <text>好评率{{j.rating}}%</text>
+                            </view>
+                            <view class="item.price">￥{{j.price}}</view>
+                        </view>
+                        <!-- 添加减少按钮 -->
+                        <btn name="{{j.name}}" choseGood="{{choseGood}}" bind:reduceCount="reduceCount"
+                            bind:addCount="addCount" data-i="{{index}}" data-j="{{i}}" class="btn"></btn>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+    <!-- 评论 -->
+    <view class="comment" hidden="{{currentIndex!=2}}">
+        评论
+    </view>
+    <!-- 商家 -->
+    <view class="store" hidden="{{currentIndex!=3}}">
+        商家
+    </view>
+
+    <!-- 购物车 -->
+    <view catchtap="showgoods" class="{{choseGood.length==0?'shopCat':'shopCat active' }}">
+        <view class="circle">
+            <view class="circle-item">
+                <text class="icon-shopping_cart"></text>
+            </view>
+        </view>
+        <view class="price">
+            <text wx:if="{{choseGood.length==0}}">未选购商品</text>
+            <text wx:if="{{choseGood.length!=0}}">￥{{allPrice}}</text>
+            <view>
+                另需配送费{{seller.deliveryPrice}}元
+            </view>
+        </view>
+        <view class="{{allPrice>=seller.minPrice?'active affirm':'affirm'}}">
+            <text wx:if="{{choseGood.length==0}}">请选择商品</text>
+            <text wx:if="{{choseGood.length!=0 && seller.minPrice>allPrice}}">还差{{seller.minPrice-allPrice}}元起送</text>
+            <text wx:if="{{allPrice>=seller.minPrice}}">去结算</text>
+        </view>
+        <view hidden="{{isShowGoodList}}" class="goodList">
+            <view class="goodList-title">
+                <view>已选商品</view>
+                <view bindtap="clearShopCart">清空</view>
+            </view>
+            <scroll-view class="scroll" scroll-y>
+                <ul>
+                    <li wx:for="{{choseGood}}" wx:index="{{index}}">
+                        <view class="good-name">{{item.name}}</view>
+                        <view class="good-desc">
+                            <view class="good-price">￥{{item.price*item.count}}</view>
+                            <btn data-price="{{item.price}}" data-name="{{item.name}}" name="{{item.name}}"
+                                choseGood="{{choseGood}}" bind:reduceCount="reduceCount" bind:addCount="addCount"
+                                class="shopbtn"></btn>
+                        </view>
+
+                    </li>
+                </ul>
+            </scroll-view>
+        </view>
+    </view>
+</view>

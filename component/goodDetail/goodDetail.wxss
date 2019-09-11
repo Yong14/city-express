@@ -1,0 +1,42 @@
+/* component/goodDetail/goodDetail.wxss */
+.detail{
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 130rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+}
+.closs{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.detail image{
+    width: 100%;
+}
+.item{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.name{
+    position: relative;
+    width: 100%;
+    font-size: 40rpx;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.btn{
+    position: absolute;
+    right: 10px;
+
+}
+.sellCount{
+    color: #555555;
+    margin-bottom: 10px;
+}
+.price{
+    color: #E84222;
+    margin-bottom: 10px;
+}

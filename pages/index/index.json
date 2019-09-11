@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "popWindow":"../../component/popWindow/popWindow",
+    "goodDetail":"../../component/goodDetail/goodDetail",
+    "btn":"../../component/btn/btn"
+  },
+  "navigationBarBackgroundColor": "#4294F7"
+
+}

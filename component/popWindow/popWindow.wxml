@@ -1,0 +1,34 @@
+<view class="box">
+
+
+    <view class="content">
+        <view class="storeName">
+            {{seller.name}}
+        </view>
+        <view class="option">
+            <text>{{seller.score}}</text>
+            <text>{{seller.sellCount}}单</text>
+            <text>{{seller.description}}</text>
+            <text>{{seller.deliveryPrice}}元</text>
+        </view>
+        <view class="option,last">
+            <text>评分</text>
+            <text>月售</text>
+            <text>约{{seller.deliveryTime}}分钟</text>
+            <text>配送费</text>
+        </view>
+        <view class="title">
+            <view class="line"></view>
+            <text>公告</text>
+            <view class="line"></view>
+        </view>
+        <view class="announcement">
+            <view wx:for="{{seller.infos}}" wx:key="index">
+                <view class="announcement-item">
+                    {{item}}
+                </view>
+            </view>
+        </view>
+        <icon bindtap="closePop" type="clear"></icon>
+    </view>
+</view>
