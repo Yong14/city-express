@@ -1,0 +1,34 @@
+<wxs module="dateFr" src="../../filter/getDate.wxs"></wxs>
+<view class="comment">
+    <view class="btn">
+        <view bindtap="chose" data-des="all" class="all">全部</view>
+        <view bindtap="chose" class="good" data-des="good">好评</view>
+        <view bindtap="chose" class="bad" data-des="bad">差评</view>
+    </view>
+    <view bindtap="chose" data-des="hasContent" class="only">
+        <view>
+            <icon type="success" size="14" color="#8CD17C" />
+            <text>只看有内容的评论</text>
+        </view>
+    </view>
+
+    <view class="content">
+        <ul>
+            <li wx:for="{{comment}}" wx:key="{{index}}">
+                <view class="img">
+                    <image src="{{item.avatar}}"></image>
+                </view>
+                <view class="content-item">
+                    <view class="username">{{item.username}}
+                        <text>{{dateFr(item.rateTime)}}</text>
+                    </view>
+                    <view class="star">
+                        <image class="star-img" wx:for="{{item.score}}" src="../../image/on@2x.png"></image>
+                    </view>
+                    <view class="text">{{item.text}}</view>
+                </view>
+            </li>
+        </ul>
+
+    </view>
+</view>

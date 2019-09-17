@@ -39,7 +39,7 @@
         "src":"../../image/保障@2x.png"
       }
     ],
-    "title":"https://cube.elemecdn.com/5/e9/5353c8ae914b69b2da2ecaee4f9d8png.png?x-oss-process=image/format,webp/resize,w_750",
+    "title":"https://cube.elemecdn.com/2/d1/259cee5a2bfb52277a14cf90fe5a5png.png",
     "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg",
     "pics": [
       "http://fuss10.elemecdn.com/8/71/c5cf5715740998d5040dda6e66abfjpeg.jpeg?imageView2/1/w/180/h/180",

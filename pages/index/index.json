@@ -2,7 +2,8 @@
   "usingComponents": {
     "popWindow":"../../component/popWindow/popWindow",
     "goodDetail":"../../component/goodDetail/goodDetail",
-    "btn":"../../component/btn/btn"
+    "btn":"../../component/btn/btn",
+    "comment":"../../component/comment/comment"
   },
   "navigationBarBackgroundColor": "#4294F7"
 

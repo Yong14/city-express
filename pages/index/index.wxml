@@ -76,11 +76,61 @@
 
     <!-- 评论 -->
     <view class="comment" hidden="{{currentIndex!=2}}">
-        评论
+        <view class="comment-box">
+            <view class="comment-head">
+                <view class="store-score">
+                    <text>{{seller.score}}</text>
+                </view>
+                <view class="store-star">
+                    <view class="store-title">商家评分</view>
+                    <view class="star-img">
+                        <image wx:for="{{star}}" wx:key="{{index}}" src="{{item}}"></image>
+                    </view>
+                </view>
+                <view class="store-foodScore">
+                    <view class="store-title">味道</view>
+                    <view class="foodScore">{{seller.foodScore}}</view>
+                </view>
+                <view>
+                    <view class="store-title">服务</view>
+                    <view class="foodScore">{{seller.serviceScore}}</view>
+                </view>
+            </view>
+            <scroll-view class="scroll-comment" scroll-y>
+                <comment ratings="{{ratings}}"></comment>
+            </scroll-view>
+        </view>
     </view>
     <!-- 商家 -->
     <view class="store" hidden="{{currentIndex!=3}}">
-        商家
+        <view class="store-head">
+            <view class="head-title">
+                <text>配送信息</text>
+            </view>
+            <view class="head-content">
+                <text>由{{seller.description}}提供配送，约{{seller.deliveryTime}}分钟送达，配送费￥{{seller.deliveryPrice}}</text>
+            </view>
+        </view>
+        <view class="store-server">
+            <view class="head-title">
+                <text>商家服务</text>
+            </view>
+            <ul>
+                <li wx:for="{{seller.supports}}" wx:key="indexs">
+                    <image src="{{item.src}}"></image>
+                    <text>{{item.description}}</text>
+                </li>
+            </ul>
+        </view>
+        <view class="store-pics">
+            <view class="head-title">
+                <text>商家实景</text>
+            </view>
+            <scroll-view class="pics" scroll-x>
+                <image data-img="{{item}}" bindtap="openPic" wx:for="{{seller.pics}}" wx:key="{{index}}" src="{{item}}">
+                </image>
+            </scroll-view>
+        </view>
     </view>
 
     <!-- 购物车 -->

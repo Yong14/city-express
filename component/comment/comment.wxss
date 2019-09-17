@@ -1,0 +1,88 @@
+/* component/comment/comment.wxss */
+.comment{
+    width: 100%;
+}
+.btn{
+    width: 100%;
+    display: flex;
+    padding: 30rpx;
+}
+.btn view{
+    height: 80rpx;
+    padding: 0 20rpx;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 80rpx;
+    box-sizing: border-box;
+    margin-right: 20rpx;
+}
+.all{
+    background-color: #4294F7;
+    color: aliceblue;
+}
+.good{
+    background-color: #EDF5FE;
+    color: #747C88;
+}
+.bad{
+    background-color: #F5F5F5;
+    color: #9F9F9F;
+}
+.only{
+    width: 100%;
+    padding:0 30rpx;
+}
+.only view{
+    width: 100%;
+    border-top: 1px solid #f6f6f6;
+    border-bottom: 1px solid #f6f6f6;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.only view text{
+    margin-left: 8px;
+}
+.content{
+    width: 100%;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.username text{
+    color: #A6A6A6;
+}
+.content ul{
+    width: 100%;
+}
+.content ul li{
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #F7F7F7;
+}
+.content ul li .img{
+    flex: 0 0 40px;
+    width: 40px;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.content ul li image{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.content-item{
+    flex:1;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.username{
+    display: flex;
+    justify-content: space-between;
+}
+.star{
+    margin-bottom: 8px;
+}
+.star .star-img{
+    width: 12px;
+    height: 12px;
+}

@@ -32,7 +32,9 @@ Page({
     //总价格
     allPrice: 4,
     //展示购物车列表
-    isShowGoodList:true
+    isShowGoodList:true,
+    //商家星级
+    star:[]
   },
   onLoad: function () {
     this.setData({
@@ -44,6 +46,7 @@ Page({
       title: this.data.seller.name
     });
     this.initGoodsHeight();
+    this.initStar();
   },
   //初始化商品元素高度
   initGoodsHeight() {
@@ -68,7 +71,23 @@ Page({
         goodsHeight: height
       })
     })
-
+  },
+  //初始化商铺星级
+  initStar(){
+    let score = this.data.seller.score;
+    let starArr = []
+    for(var i=1;i<=5;i++){
+      if(i<=score){
+        starArr.push("../../image/on@2x.png")
+      }else if(i>Math.floor(score)&&i<=Math.ceil(score)){
+        starArr.push("../../image/half@2x.png")
+      }else{
+        starArr.push("../../image/off@2x.png")
+      }
+    }
+    this.setData({
+      star:starArr
+    })
   },
   //显示商铺详情
   headText() {
@@ -195,5 +214,12 @@ Page({
         isShowGoodList: !this.data.isShowGoodList
       })
     }
+  },
+  //商家页面图片点击事件
+  openPic(e){
+    wx.previewImage({
+      current: e.currentTarget.dataset.img, // 当前显示图片的http链接
+      urls: this.data.seller.pics // 需要预览的图片http链接列表
+    })
   }
 })

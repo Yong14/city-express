@@ -17,7 +17,6 @@ Component({
 
   observers:{
     "choseGood,name":function(choseGood,name){
-
       for(var i=0;i<choseGood.length;i++){
         
         if(choseGood[i].name==name){
